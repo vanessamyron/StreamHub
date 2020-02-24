@@ -3,7 +3,8 @@ const BASE_URL_TWITCH = "https://api.twitch.tv/helix";
 //Our API Key/client id for twitch.tv
 const CLIENT_ID_TWITCH = "wn4jubf3xbpbk49l089pb1p429qlce";
 
-const TEST_URL = "https://api.wheretheiss.at/v1/satellites/25544";
+//An example API call to mixer getting specific channel information
+const TEST_URL = "https://mixer.com/api/v1/channels/misterjoker";
 
 
 async function getData() {
