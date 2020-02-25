@@ -1,4 +1,4 @@
-const BASE_URL_TWITCH = "https://api.twitch.tv/helix";
+const BASE_URL_TWITCH = "https://api.twitch.tv/helix/users?login=";
 
 //Our API Key/client id for twitch.tv
 const CLIENT_ID_TWITCH = "wn4jubf3xbpbk49l089pb1p429qlce";
@@ -10,7 +10,30 @@ const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 const button = document.querySelector('button');
 button.addEventListener('click', getStreamer);
 
+
+
+//Function to get streamer data from Twitch's API
+/* Twitch seems to require that the client-id be in the Javascript Header Object, more info on those:
+   https://developer.mozilla.org/en-US/docs/Web/API/Headers
+   https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch */
+function getStreamer() {
+	const user = document.querySelector("#streamId").value;
+	console.log(user);
+
+	fetch(BASE_URL_TWITCH + user, {
+		method: 'GET', // or 'PUT'
+		headers: {
+			'Content-Type': 'application/json',
+			'Client-ID': CLIENT_ID_TWITCH,
+		},
+		//body: JSON.stringify(user),
+	}).then((user) => {
+		console.log('Success:', user);
+	})
+}
+
 //Function to get streamer data from Mixer's API
+/*
 function getStreamer() {
 	const user = document.querySelector("#streamId").value;
 	console.log(user);
@@ -18,6 +41,7 @@ function getStreamer() {
 	//Need to deal with promise
 	getData(user);
 }
+*/
 
 //Get data from Mixer API based on streamer user name
 async function getData(userId) {
