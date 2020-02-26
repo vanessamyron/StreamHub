@@ -10,7 +10,6 @@ const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 const button = document.querySelector("button");
 button.addEventListener('click', streamSelected);
 
-
 function streamSelected() {
 	let ele = document.getElementsByName('website');
 
@@ -22,12 +21,11 @@ function streamSelected() {
 	}
 }
 
-
 //Function to get streamer data from Twitch's API
 /* Twitch seems to require that the client-id be in the Javascript Header Object, more info on those:
    https://developer.mozilla.org/en-US/docs/Web/API/Headers
    https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch */
-function getStreamerTwitch() {
+async function getStreamerTwitch() {
 	const user = document.querySelector("#streamId").value;
 	console.log("Calling twitch api for user: " + user);
 
@@ -46,23 +44,19 @@ function getStreamerTwitch() {
 }
 
 //Function to get streamer data from Mixer's API
-function getStreamerMixer() {
+async function getStreamerMixer() {
 	const user = document.querySelector("#streamId").value;
 	console.log("Calling mixer api for user: " + user);
 
-	//Need to deal with promise
-	getData(user);
+	fetch(BASE_URL_MIXER + user, {
+		method: 'GET', // or 'PUT'
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		//body: JSON.stringify(user),
+	})
+		.then((response) => response.json())
+		.then((user) => {
+			console.log('Success:', user);
+		})
 }
-
-//Get data from Mixer API based on streamer user name
-async function getData(userId) {
-
-	const response = await fetch(BASE_URL_MIXER + userId);
-	//Convert response into json
-	const data = await response.json();
-	//Print data to console
-	console.log(data);
-}
-
-//Commented out to avoid constantly calling API during testing
-//getData();
