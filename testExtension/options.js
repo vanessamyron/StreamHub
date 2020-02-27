@@ -6,7 +6,7 @@ const CLIENT_ID_TWITCH = "wn4jubf3xbpbk49l089pb1p429qlce";
 //An example API call to mixer getting specific channel information
 const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 
-//Get the button to add streamer, and run addStreamer() on click
+//Get the button to add streamer, and run streamSelected() on click
 const button = document.querySelector("button");
 button.addEventListener('click', streamSelected);
 
@@ -35,20 +35,19 @@ async function getStreamerTwitch() {
 			'Content-Type': 'application/json',
 			'Client-ID': CLIENT_ID_TWITCH,
 		},
-		//body: JSON.stringify(user),
 	})
 	.then((response) => response.json())
 	.then((user) => {
 		console.log('Success:', user);
 
-		//User is already a parsed JSON object, can access data directly and check if type === live
+		//Placing JSON array object into obj for better readability later
 		const obj = user.data[0];
 		if(obj === undefined) {
 			console.log("Offline");
 		}
 		else {
 			console.log(obj.type);
-			console.log(user.data[0].viewer_count);
+			console.log(obj.viewer_count);
 		}
 	})
 }
@@ -63,16 +62,14 @@ async function getStreamerMixer() {
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		//body: JSON.stringify(user),
 	})
 		.then((response) => response.json())
 		.then((user) => {
 			console.log('Success:', user);
 
 			//User is already a parsed JSON object, can access data directly and check if user.online === true
-			const obj = user.online;
-			if(obj === true) {
-				console.log(obj);
+			if(user.online === true) {
+				console.log(user.online);
 				console.log(user.viewersCurrent);
 			}
 			else
