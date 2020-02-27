@@ -47,7 +47,7 @@ async function getStreamerTwitch() {
 			console.log("Offline");
 		}
 		else {
-			console.log(obj);
+			console.log(obj.type);
 			console.log(user.data[0].viewer_count);
 		}
 	})
