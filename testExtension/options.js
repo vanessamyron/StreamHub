@@ -41,14 +41,15 @@ async function getStreamerTwitch() {
 	.then((user) => {
 		console.log('Success:', user);
 
-		//User is already a parsed JSON object, can access data directly and check if type = live
-		const obj = user.data[0].type;
-		if(obj === "live") {
+		//User is already a parsed JSON object, can access data directly and check if type === live
+		const obj = user.data[0];
+		if(obj === undefined) {
+			console.log("Offline");
+		}
+		else {
 			console.log(obj);
 			console.log(user.data[0].viewer_count);
 		}
-		else
-			console.log("Offline");
 	})
 }
 
