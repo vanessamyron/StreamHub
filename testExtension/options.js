@@ -2,6 +2,8 @@ const BASE_URL_TWITCH = "https://api.twitch.tv/helix/streams?user_login=";
 
 //Our API Key/client id for twitch.tv
 const CLIENT_ID_TWITCH = "wn4jubf3xbpbk49l089pb1p429qlce";
+//Another test API key for twitch.tv
+//const CLIENT_ID_TWITCH = "tn2qigcd7zaj1ivt1xbhw0fl2y99c4y";
 
 //An example API call to mixer getting specific channel information
 const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";

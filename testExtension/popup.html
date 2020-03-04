@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
 		<head>
-				<style>
-					button {
-							height: 30px;
-							width: 30px;
-							outline: none;
-					}
-				</style>
+			<link rel="stylesheet" href="styles/styles.css">
+
 		</head>
 		<body>
-				<button id="changeColor"></button>
-				<script src="popup.js"></script>
-		</body>
-</html>
+		<input type="text" id="streamId">
+		<button class="addStreamButton">Add Stream</button>
+		<input type="radio" name="website" value="twitch"> Twitch
+		<input type="radio" name="website" value="mixer"> Mixer
 
+		<table style="width:100%" id="onlineStreamersTable">
+					<tr>
+						<th>Status:</th>
+						<th>Display Name:</th>
+						<th>Viewer Count:</th>
+					</tr>
+				</table>
+		</body>
+
+		<script src="popup.js" defer></script>
+</html>
