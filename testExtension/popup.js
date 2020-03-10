@@ -8,6 +8,9 @@ const CLIENT_ID_TWITCH = "wn4jubf3xbpbk49l089pb1p429qlce";
 //An example API call to mixer getting specific channel information
 const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 
+// An API to get user follow 
+const GET_URL_FOLLOW = "https://api.twitch.tv/kraken/users/<user ID>/follows/channels";
+
 //Get the button to add streamer, and run streamSelected() on click
 const button = document.querySelector("button");
 button.addEventListener('click', streamSelected);
@@ -97,4 +100,20 @@ function addStreamer(status, name, viewers){
 	cell1.innerHTML = status;
 	cell2.innerHTML = name;
 	cell3.innerHTML = viewers;
+}
+
+function getFollowers(name){
+return new Promise((resolve,reject) => {
+	request({GET_URL_FOLLOW, json: true }, (err,resp,body) => {
+		if(err == true){
+			reject(err)
+	}
+
+		const PEOPLE_FOLLOWERS = body.follows.map(follower => {
+			return { id: follower.user.id, name: follower.user.name }
+		})
+				resolve(PEOPLE_FOLLOWERS)
+	})
+})
+
 }
