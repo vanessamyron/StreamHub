@@ -1,7 +1,12 @@
-/*function addToStorage(user, callback) {
-    console.log("Adding user: " + user);
-    callback();
-}
+window.onload = function() {
+    document.getElementById("addStreamButton").onclick = function() {
+    	let name = document.getElementById("streamId").value;
+
+    	chrome.storage.sync.set({'streamer': name}, () => {
+    		alert("Success");
+		})
+	}
+};
 
 function addStreamer(status, name, viewers){
 	let tableRef = document.getElementById("onlineStreamersTable");
@@ -13,4 +18,3 @@ function addStreamer(status, name, viewers){
 	cell2.innerHTML = name;
 	cell3.innerHTML = viewers;
 }
-*/
