@@ -2,8 +2,6 @@ const BASE_URL_TWITCH = "https://api.twitch.tv/helix/streams?user_login=";
 
 //Our API Key/client id for twitch.tv
 const CLIENT_ID_TWITCH = "wn4jubf3xbpbk49l089pb1p429qlce";
-//Another test API key for twitch.tv
-//const CLIENT_ID_TWITCH = "tn2qigcd7zaj1ivt1xbhw0fl2y99c4y";
 
 //An example API call to mixer getting specific channel information
 const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
@@ -12,25 +10,33 @@ const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 const GET_URL_FOLLOW = "https://api.twitch.tv/kraken/users/<user ID>/follows/channels";
 
 //Get the button to add streamer, and run streamSelected() on click
-const button = document.querySelector("button");
-button.addEventListener('click', streamSelected);
+const addStreamButton = document.getElementById("addStreamButton");
+addStreamButton.addEventListener('click', streamSelected);
 
 function streamSelected() {
 	let ele = document.getElementsByName('website');
 
 	for(i = 0; i < ele.length; i++) {
 		if(ele[i].checked) {
-			if(ele[i].value === "twitch") {
-				getStreamerTwitch();
-				return;
-			}
-			if(ele[i].value === "mixer") {
-				getStreamerMixer();
-				return;
+			switch(ele[i].value) {
+				case "twitch":
+					getStreamerTwitch();
+					return;
+				case "mixer":
+					getStreamerMixer();
+					return;
 			}
 		}
 	}
 
+}
+
+//Get the homepage button, and run streamSelected() on click
+const button = document.getElementById("homePageButton");
+button.addEventListener('click', goHome);
+
+function goHome() {
+	window.open("webpage/index.html", "_blank");
 }
 
 //Function to get streamer data from Twitch's API
@@ -59,8 +65,12 @@ async function getStreamerTwitch() {
 		}
 		else {
 			addStreamer(obj.type, obj.user_name, obj.viewer_count);
-			console.log(obj.type);
-			console.log(obj.viewer_count);
+			/*
+			WOrking on later - 
+			chrome.runtime.getBackgroundPage(function(backgroundPage) {
+				backgroundPage.addToStorage(user,addStreamer(obj.type, obj.user_name, obj.viewer_count));
+			});
+			*/
 		}
 	})
 }
