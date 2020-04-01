@@ -1,7 +1,7 @@
 $(document).ready(function() {
 		$("#add-streamer").click(function() {
 				$(this).attr({
-						"id": "homepage"
+						"id": "homepage",
 						"src": "./photos/home.png",
 						"alt": "Homepage button"
 				});
@@ -10,7 +10,7 @@ $(document).ready(function() {
 		});
 		$("#homepage").click(function() {
 				$(this).attr({
-						"id": "add-streamer"
+						"id": "add-streamer",
 						"src": "./photos/plus.png",
 						"alt": "Add streamers button"
 				});
