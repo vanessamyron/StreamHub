@@ -6,7 +6,7 @@ const CLIENT_ID_TWITCH = "wn4jubf3xbpbk49l089pb1p429qlce";
 //An example API call to mixer getting specific channel information
 const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 
-// An API to get user follow 
+// An API to get user follow
 const GET_URL_FOLLOW = "https://api.twitch.tv/kraken/users/<user ID>/follows/channels";
 
 //Get the button to add streamer, and run streamSelected() on click
@@ -64,9 +64,9 @@ async function getStreamerTwitch() {
 			console.log("Offline");
 		}
 		else {
-			addStreamer(obj.type, obj.user_name, obj.viewer_count);
+			addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
 			/*
-			WOrking on later - 
+			WOrking on later -
 			chrome.runtime.getBackgroundPage(function(backgroundPage) {
 				backgroundPage.addToStorage(user,addStreamer(obj.type, obj.user_name, obj.viewer_count));
 			});
@@ -101,15 +101,18 @@ async function getStreamerMixer() {
 		})
 }
 
-function addStreamer(status, name, viewers){
+function addStreamer(status, name, title, viewers){
 	let tableRef = document.getElementById("onlineStreamersTable");
 	let row = tableRef.insertRow(1);
 	let cell1 = row.insertCell(0);
 	let cell2 = row.insertCell(1);
 	let cell3 = row.insertCell(2);
+	let cell4 = row.insertCell(3);
+
 	cell1.innerHTML = status;
 	cell2.innerHTML = name;
-	cell3.innerHTML = viewers;
+	cell3.innerHTML = title;
+	cell4.innerHTML = viewers;
 }
 
 function getFollowers(name){
