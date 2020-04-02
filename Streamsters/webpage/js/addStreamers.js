@@ -1,5 +1,5 @@
 // $(document).ready(function() {
-// 		$("#search").focus(function(){ //To test if streamers has element of active streamers when searching 
+// 		$("#search").focus(function(){ //To test if streamers has element of active streamers when searching
 // 				var full = $("#streamers").has("img").length ? true : false;
 // 				if (full == false){
 // 						$("#streamers").empty();
@@ -20,7 +20,7 @@ const CLIENT_ID_TWITCH = "wn4jubf3xbpbk49l089pb1p429qlce";
 //An example API call to mixer getting specific channel information
 const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 
-// An API to get user follow 
+// An API to get user follow
 const GET_URL_FOLLOW = "https://api.twitch.tv/kraken/users/<user ID>/follows/channels";
 
 //Get the button to add streamer, and run streamSelected() on click
@@ -78,9 +78,9 @@ async function getStreamerTwitch() {
 			console.log("Offline");
 		}
 		else {
-			addStreamer(obj.type, obj.user_name, obj.viewer_count);
+			addStreamer(obj.logo ,obj.type, obj.user_name, obj.viewer_count);
 			/*
-			WOrking on later - 
+			WOrking on later -
 			chrome.runtime.getBackgroundPage(function(backgroundPage) {
 				backgroundPage.addToStorage(user,addStreamer(obj.type, obj.user_name, obj.viewer_count));
 			});
@@ -106,7 +106,7 @@ async function getStreamerMixer() {
 
 			//User is already a parsed JSON object, can access data directly and check if user.online === true
 			if(user.online === true) {
-				addStreamer(user.online, user.token, user.viewersCurrent);
+				addStreamer(user.logo , user.online, user.token, user.viewersCurrent);
 				console.log(user.online);
 				console.log(user.viewersCurrent);
 			}
@@ -115,15 +115,17 @@ async function getStreamerMixer() {
 		})
 }
 
-function addStreamer(status, name, viewers){
+function addStreamer(logo, status, name, viewers){
 	let tableRef = document.getElementById("onlineStreamersTable");
 	let row = tableRef.insertRow(1);
 	let cell1 = row.insertCell(0);
 	let cell2 = row.insertCell(1);
 	let cell3 = row.insertCell(2);
-	cell1.innerHTML = status;
-	cell2.innerHTML = name;
-	cell3.innerHTML = viewers;
+	let cell3 = row.insertCell(3);
+  cell1. = logo;
+	cell2. = status;
+	cell3. = name;
+	cell4. = viewers;
 }
 
 function getFollowers(name){
