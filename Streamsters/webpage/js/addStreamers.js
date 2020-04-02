@@ -78,7 +78,11 @@ async function getStreamerTwitch() {
 			console.log("Offline");
 		}
 		else {
+<<<<<<< HEAD
 			addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
+=======
+			addStreamer(obj.logo ,obj.type, obj.user_name, obj.viewer_count);
+>>>>>>> e9f0b12024f3ba5fb541da0542621711aeeed597
 			/*
 			WOrking on later -
 			chrome.runtime.getBackgroundPage(function(backgroundPage) {
@@ -106,7 +110,11 @@ async function getStreamerMixer() {
 
 			//User is already a parsed JSON object, can access data directly and check if user.online === true
 			if(user.online === true) {
+<<<<<<< HEAD
 				addStreamer(user.online, user.token, user.title ,user.viewersCurrent);
+=======
+				addStreamer(user.logo , user.online, user.token, user.viewersCurrent);
+>>>>>>> e9f0b12024f3ba5fb541da0542621711aeeed597
 				console.log(user.online);
 				console.log(user.viewersCurrent);
 			}
@@ -115,17 +123,29 @@ async function getStreamerMixer() {
 		})
 }
 
+<<<<<<< HEAD
 function addStreamer(status, name, title, viewers){
+=======
+function addStreamer(logo, status, name, viewers){
+>>>>>>> e9f0b12024f3ba5fb541da0542621711aeeed597
 	let tableRef = document.getElementById("onlineStreamersTable");
 	let row = tableRef.insertRow(1);
 	let cell1 = row.insertCell(0);
 	let cell2 = row.insertCell(1);
 	let cell3 = row.insertCell(2);
+<<<<<<< HEAD
 	let cell4 = row.insertCell(3);
 	cell1.innerHTML = status;
 	cell2.innerHTML = name;
 	cell3.innerHTML = title;
 	cell4.innerHTML = viewers;
+=======
+	let cell3 = row.insertCell(3);
+  cell1. = logo;
+	cell2. = status;
+	cell3. = name;
+	cell4. = viewers;
+>>>>>>> e9f0b12024f3ba5fb541da0542621711aeeed597
 }
 
 function getFollowers(name){
