@@ -64,7 +64,7 @@ async function getStreamerTwitch() {
 			console.log("Offline");
 		}
 		else {
-			addStreamer(obj.type, obj.user_name, obj.game ,obj.viewer_count);
+			addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
 			/*
 			WOrking on later -
 			chrome.runtime.getBackgroundPage(function(backgroundPage) {
@@ -101,7 +101,7 @@ async function getStreamerMixer() {
 		})
 }
 
-function addStreamer(status, name, game, viewers){
+function addStreamer(status, name, title, viewers){
 	let tableRef = document.getElementById("onlineStreamersTable");
 	let row = tableRef.insertRow(1);
 	let cell1 = row.insertCell(0);
@@ -111,7 +111,7 @@ function addStreamer(status, name, game, viewers){
 
 	cell1.innerHTML = status;
 	cell2.innerHTML = name;
-	cell3.innerHTML = game;
+	cell3.innerHTML = title;
 	cell4.innerHTML = viewers;
 }
 
