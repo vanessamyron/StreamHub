@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./css/homepage.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="./js/addStreamers.js"></script>
 </head>
 <body>
 		<div class="search-bar center">
-				<input type="text" placeholder="Search Streamers to add">
+				<input type="text" placeholder="Search Streamers to add" id="streamId">
+				<input class="radio" type="radio" name="website" value="twitch"> Twitch
+				<input class="radio" type="radio" name="website" value="mixer"> Mixer
+				<button id="addStreamButton">Add Stream<!--<img class="search-icon" src="./photos/favicon-32x32.png" alt="search icon">--></button>
 				<a href="./index.html">
 						<img class="icon-top" src="./photos/home.png" alt="Homepage button">
 				</a>
@@ -19,5 +23,14 @@
 		</div>
 		<div class="streamers">
 				<p>Type a streamers name in the search bar to search and add streamers to your feed.</p>
+		</div>
+		<div class="addStreamersTable">
+				<table style="width:100%" id="onlineStreamersTable">
+					<tr>
+						<th>Status:</th>
+						<th>Display Name:</th>
+						<th>Viewer Count:</th>
+					</tr>
+				</table>
 		</div>
 </body>

@@ -2,17 +2,27 @@
 		text-align: center;
 }
 
-.search-bar input {
+.search input {
 		overflow: hidden;
-		border-radius: 20px;
-		padding: 6px;
+		/* border-radius: 20px; */
+		padding: 6px 0;
 		background-color: #ccc;
 		text-align: center;
 		margin-top: 16px;
-		margin-right: 16px;
 		font-size: 32px;
 		width: 75%;
 		height: 40px;
+}
+
+.search button {
+		height: 40px;
+		padding: 6px 10px;
+		margin-top: 8px;
+		margin-right: 16px;
+		background: #ddd;
+		font-size: 17px;
+		border: none;
+		cursor: pointer;
 }
 
 .icon-top {
