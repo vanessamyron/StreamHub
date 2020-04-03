@@ -119,7 +119,11 @@ function addStreamer(status, name, title, viewers){
 	let cell2 = row.insertCell(1);
 	let cell3 = row.insertCell(2);
 	let cell4 = row.insertCell(3);
+	let cell5 = row.insertCell(4);
 	var tds = document.getElementsByTagName("td");
+	let btn = document.createElement("button");
+	btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
+	cell5.appendChild(btn);
 
 if(status == "Offline"){
 	tds[0].style.color = "#FF0000";
