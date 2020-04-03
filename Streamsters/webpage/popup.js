@@ -58,6 +58,14 @@ async function getStreamerTwitch() {
 	.then((user) => {
 		console.log('Success:', user);
 
+		var tds = document.getElementsByTagName("td");
+		var duplicate = false;
+		for(var i = 0, j = tds.length; i < j; ++i){
+				if(tds[i].innerHTML == document.querySelector("#streamId").value){
+						duplicate = true;
+				}
+		}
+		if(!duplicate){
 		//Placing JSON array object into obj for better readability later
 		const obj = user.data[0];
 		if(obj === undefined) {
@@ -72,6 +80,9 @@ async function getStreamerTwitch() {
 			});
 			*/
 		}
+	}else{
+		console.log("User already in list");
+	}
 	})
 }
 
@@ -108,23 +119,17 @@ function addStreamer(status, name, title, viewers){
 	let cell2 = row.insertCell(1);
 	let cell3 = row.insertCell(2);
 	let cell4 = row.insertCell(3);
-
+	var tds = document.getElementsByTagName("td");
 
 if(status == "Offline"){
-
-	var tds = document.getElementsByTagName("td");
 	tds[0].style.color = "#FF0000";
-
-
 	cell1.innerHTML = status;
 	cell2.innerHTML = name;
 	cell3.innerHTML = title;
 	cell4.innerHTML = viewers;
 }else{
 
-	var tds = document.getElementsByTagName("td");
 	tds[0].style.color = "#008000";
-
 	cell1.innerHTML = status;
 	cell2.innerHTML = name;
 	cell3.innerHTML = title;
