@@ -61,7 +61,7 @@ async function getStreamerTwitch() {
 		//Placing JSON array object into obj for better readability later
 		const obj = user.data[0];
 		if(obj === undefined) {
-			console.log("Offline");
+			addStreamer("Offline" , user , " " , " ");
 		}
 		else {
 			addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
