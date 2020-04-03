@@ -69,12 +69,13 @@ async function getStreamerTwitch() {
 		},
 	})
 	.then((response) => response.json())
-	.then((user) => {
-		console.log('Success:', user);
+	.then((user) =>	console.log('Success:', user);
 
 		//Placing JSON array object into obj for better readability later
 		const obj = user.data[0];
 		if(obj === undefined) {
+
+
 			addStreamer("Offline" , user , " " , " ");
 		}
 		else {
