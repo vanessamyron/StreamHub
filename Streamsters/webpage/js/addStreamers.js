@@ -76,7 +76,7 @@ async function getStreamerTwitch() {
 		if(obj === undefined) {
 
 
-			addStreamer("Offline" , user , " " , " ");
+			addStreamer("Offline" , document.querySelector("#streamId").value , " " , " ");
 		}
 		else {
 			addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
