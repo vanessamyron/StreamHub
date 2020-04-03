@@ -123,10 +123,28 @@ function addStreamer(status, name, title, viewers){
 	let cell2 = row.insertCell(1);
 	let cell3 = row.insertCell(2);
 	let cell4 = row.insertCell(3);
+
+
+	if(status == "Offline"){
+
+	var tds = document.getElementsByTagName("td");
+	tds[0].style.color = "#FF0000";
+
+
 	cell1.innerHTML = status;
 	cell2.innerHTML = name;
 	cell3.innerHTML = title;
 	cell4.innerHTML = viewers;
+	}else{
+
+	var tds = document.getElementsByTagName("td");
+	tds[0].style.color = "#008000";
+
+	cell1.innerHTML = status;
+	cell2.innerHTML = name;
+	cell3.innerHTML = title;
+	cell4.innerHTML = viewers;
+	}
 }
 
 function getFollowers(name){
