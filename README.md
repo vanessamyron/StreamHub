@@ -1,7 +1,14 @@
 # StreamHub  
 ### Sprint check list    
 - [ ] Not done item yet  
-- [x] Done item  
+- [x] Done item    
+- [ ] Cookies to remember streamers  
+- [ ] Support for themes on base webpage  
+- [ ] Support for themes on chrome extension   
+- [ ] Sorting added streamers on homepage  
+- [ ] Replace favicon with Streamsters logo  
+- [ ] Add support for notifications when live  
+
 
 CEN4020 Semester long project. This is a Chrome Extension to track Twitch and Mixer streams from selected creators by the user.
 
