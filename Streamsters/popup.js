@@ -13,6 +13,47 @@ const GET_URL_FOLLOW = "https://api.twitch.tv/kraken/users/<user ID>/follows/cha
 const addStreamButton = document.getElementById("addStreamButton");
 addStreamButton.addEventListener('click', streamSelected);
 
+let allStreamers = {};
+currentStreamers = {
+	type: false,
+	username: "",
+	viewers: 0
+};
+
+//Function to test if properly storing streamer data
+const show = document.getElementById("showButton");
+show.addEventListener('click', showStreamers);
+function showStreamers() {
+
+	// to initialize the all data using the storage
+
+	chrome.storage.sync.get('allStreamers', function(data) {
+		// check if data exists.
+		if (data) {
+			allStreamers = data.allStreamers;
+			console.log("Streamers saved in storage: ");
+			for (i in allStreamers){
+				for (key in allStreamers[i]){
+					console.log( key + ": " + allStreamers[i][key]);
+				}
+			}
+		} else {
+			allStreamers[Object.keys(allStreamers).length] = currentStreamers;
+		}
+	});
+/*
+	chrome.storage.sync.get({allStreamers:{}}, function(data) {
+		allStreamers = data.allStreamers;
+		console.log("Streamers saved in storage: ");
+		for (i in allStreamers){
+			for (key in allStreamers[i]){
+				console.log( key + ": " + allStreamers[i][key]);
+			}
+		}
+	});
+*/
+}
+
 function streamSelected() {
 	let ele = document.getElementsByName('website');
 
@@ -65,12 +106,13 @@ async function getStreamerTwitch() {
 		}
 		else {
 			addStreamer(obj.type, obj.user_name, obj.viewer_count);
-			/*
-			WOrking on later - 
-			chrome.runtime.getBackgroundPage(function(backgroundPage) {
-				backgroundPage.addToStorage(user,addStreamer(obj.type, obj.user_name, obj.viewer_count));
+
+			// Save streamer using the Chrome extension storage API.
+			chrome.storage.sync.set({'allStreamers': obj.user_name}, function() {
+				// Notify that we saved.
+				console.log('Streamers saved in storage..');
 			});
-			*/
+
 		}
 	})
 }
