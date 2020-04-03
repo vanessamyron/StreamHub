@@ -1,4 +1,8 @@
-# StreamHub
+# StreamHub  
+### Sprint check list    
+- [ ] Not done item yet  
+- [x] Done item  
+
 CEN4020 Semester long project. This is a Chrome Extension to track Twitch and Mixer streams from selected creators by the user.
 
 CEN 4020: Software Engineering I, Fall 2019
