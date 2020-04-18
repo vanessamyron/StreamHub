@@ -6,7 +6,7 @@
 - [ ] Support for themes on base webpage  
 - [ ] Support for themes on chrome extension   
 - [ ] Sorting added streamers on homepage  
-- [ ] Replace favicon with Streamsters logo  
+- [x] Replace favicon with Streamsters logo -Isaac  
 - [ ] Add support for notifications when live  
 
 
