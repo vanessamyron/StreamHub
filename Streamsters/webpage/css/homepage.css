@@ -2,16 +2,28 @@
 		text-align: center;
 }
 
+body {
+		background-color: #6441a4;
+}
+
+p {
+		color: #1fbaed;
+}
+
 .search input {
 		overflow: hidden;
-		/* border-radius: 20px; */
 		padding: 6px 0;
-		background-color: #ccc;
+		background-color: #29374a;
+		color: #1fbaed;
 		text-align: center;
 		margin-top: 16px;
 		font-size: 32px;
 		width: 75%;
 		height: 40px;
+}
+
+::placeholder {
+		color: #1fbaed;
 }
 
 .search button {
@@ -53,14 +65,29 @@
 
 .streamers td, th {
 		font-size: 20px;
+		color: #1fbaed;
 }
 
 .streamers tr:hover {
-		background-color: #f5f5f5;
+		background-color: #29374a;
 }
 
 #streamId {
 		border-radius: 20px;
 		border: 5px;
+		border-color: #3a485b;
 		border-style: outset;
+}
+
+.inline-radio {
+		background-color: #29374a;
+		border-radius: 10px;
+		height: 50px;
+		padding: 10px;
+		display:inline-block;
+		text-align: center;
+}
+
+.inline-radio img {
+		display: block;
 }
