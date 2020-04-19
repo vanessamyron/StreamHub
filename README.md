@@ -1,9 +1,9 @@
-# StreamHub  
+# Streamster  
 ### Sprint check list    
 - [ ] Not done item yet  
 - [x] Done item    
 - [ ] Cookies to remember streamers  
-- [ ] Support for themes on base webpage  
+- [x] Support for themes on base webpage - Laura: Working on settings themes (4/12)
 - [ ] Support for themes on chrome extension   
 - [ ] Sorting added streamers on homepage  
 - [x] Replace favicon with Streamsters logo -Isaac  
