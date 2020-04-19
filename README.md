@@ -1,4 +1,4 @@
-# StreamHub  
+# Streamster  
 ### Sprint check list    
 - [ ] Not done item yet  
 - [x] Done item    
