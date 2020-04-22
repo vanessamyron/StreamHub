@@ -2,7 +2,7 @@
 ### Sprint check list    
 - [ ] Not done item yet  
 - [x] Done item    
-- [ ] Cookies to remember streamers  
+- [ ] Cookies to remember streamers  - Carlos : Working on this now
 - [x] Support for themes on base webpage - Laura: Colors for setting themes done, working on passing them to index and addStreamers
 - [ ] Support for themes on chrome extension   
 - [x] Sorting added streamers on homepage  
