@@ -5,7 +5,7 @@
 - [ ] Cookies to remember streamers  
 - [x] Support for themes on base webpage - Laura: Colors for setting themes done, working on passing them to index and addStreamers
 - [ ] Support for themes on chrome extension   
-- [ ] Sorting added streamers on homepage  
+- [x] Sorting added streamers on homepage  
 - [x] Replace favicon with Streamsters logo -Isaac  
 - [ ] Add support for notifications when live  
 
