@@ -36,7 +36,7 @@ const button = document.getElementById("homePageButton");
 button.addEventListener('click', goHome);
 
 function goHome() {
-	window.open("webpage/index.html", "_blank");
+	window.open("webpage/popup.html", "_blank");
 }
 
 //Function to get streamer data from Twitch's API
@@ -65,12 +65,7 @@ async function getStreamerTwitch() {
 		}
 		else {
 			addStreamer(obj.type, obj.user_name, obj.game, obj.viewer_count);
-			/*
-			WOrking on later -
-			chrome.runtime.getBackgroundPage(function(backgroundPage) {
-				backgroundPage.addToStorage(user,addStreamer(obj.type, obj.user_name, obj.viewer_count));
-			});
-			*/
+
 		}
 	})
 }

@@ -78,12 +78,7 @@ async function getStreamerTwitch() {
 		else {
 		//	addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
 		addDataToLocalStorage(obj.type, obj.user_name, obj.title ,obj.viewer_count);
-			/*
-			WOrking on later -
-			chrome.runtime.getBackgroundPage(function(backgroundPage) {
-				backgroundPage.addToStorage(user,addStreamer(obj.type, obj.user_name, obj.viewer_count));
-			});
-			*/
+
 		}
 	}else{
 		console.log("User already in list");
@@ -159,13 +154,9 @@ function showData(){
 		let cell2 = row.insertCell(1);
 		let cell3 = row.insertCell(2);
 		let cell4 = row.insertCell(3);
-		let cell5 = row.insertCell(4);
 
 
 		var tds = document.getElementsByTagName("td");
-		let btn = document.createElement("button");
-		btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
-		cell5.appendChild(btn);
 
 	if(arr[i].status1 == "live"){
 		tds[0].style.color = "#008000";
@@ -173,15 +164,15 @@ function showData(){
 		cell2.innerHTML = "<a href='https://www.twitch.tv/" + arr[i].name1 + "'<a><p>" + arr[i].name1 + "</p></a>";
 		cell3.innerHTML = arr[i].title1;
 		cell4.innerHTML = arr[i].viewers1;
-	}else if(arr[i].status1 == "true"){
-		tds[0].style.color = "#008000";
+	}else if(arr[i].status1 == "Offline"){
+		tds[0].style.color = "#FF0000";
 		cell1.innerHTML = arr[i].status1;
 		cell2.innerHTML = "<p>" + arr[i].name1 + "</p>";
 		cell3.innerHTML = arr[i].title1;
 		cell4.innerHTML = arr[i].viewers1;
 	}else{
-		tds[0].style.color = "#FF0000";
-		cell1.innerHTML = arr[i].status1;
+		tds[0].style.color = "#008000";
+		cell1.innerHTML = "live";
 		cell2.innerHTML = "<p>" + arr[i].name1 + "</p>";
 		cell3.innerHTML =arr[i].title1;
 		cell4.innerHTML = arr[i].viewers1;
