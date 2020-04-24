@@ -69,10 +69,11 @@ async function getStreamerTwitch() {
 		//Placing JSON array object into obj for better readability later
 		const obj = user.data[0];
 		if(obj === undefined) {
-			addStreamer("Offline" , document.querySelector("#streamId").value , " " , " ");
+		//	addStreamer("Offline" , document.querySelector("#streamId").value , " " , " ");
 		}
 		else {
-			addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
+		//	addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
+		addDataToLocalStorage(obj.type, obj.user_name, obj.title ,obj.viewer_count);
 			/*
 			WOrking on later -
 			chrome.runtime.getBackgroundPage(function(backgroundPage) {
