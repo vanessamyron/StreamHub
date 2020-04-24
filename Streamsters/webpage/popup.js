@@ -9,6 +9,9 @@ const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 // An API to get user follow
 const GET_URL_FOLLOW = "https://api.twitch.tv/kraken/users/<user ID>/follows/channels";
 
+var arr = new Array();
+
+
 //Get the button to add streamer, and run streamSelected() on click
 const addStreamButton = document.getElementById("addStreamButton");
 addStreamButton.addEventListener('click', streamSelected);
@@ -112,7 +115,7 @@ async function getStreamerMixer() {
 				console.log("Offline");
 		})
 }
-var arr = new Array();
+
 function addDataToLocalStorage(status, name, title, viewers){
 	 getDataFromLocalStorage();
 	 arr.push({
