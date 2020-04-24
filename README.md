@@ -1,13 +1,12 @@
-# Streamster  
+# StreamHub  
 ### Sprint check list    
 - [ ] Not done item yet  
 - [x] Done item    
-- [x] Cookies to remember streamers  - Carlos :I used localStorage instead of cookies since we are clearly crunched for time. You should be able to hit refresh on a page with streamers and the streamers will be reloaded on page load. I added a new button to the bottom that needs to be formated and changed to match the rest of the page (this button clears the localStroage so when you hit refresh again you will see no streamers)
-- [x] Cookies to remember themes - Laura: Working on it.
-- [x] Support for themes on base webpage - Laura: Colors for setting themes done, working on passing them to index and addStreamers
+- [ ] Cookies to remember streamers  
+- [ ] Support for themes on base webpage  
 - [ ] Support for themes on chrome extension   
-- [x] Sorting added streamers on homepage  
-- [x] Replace favicon with Streamsters logo -Isaac  
+- [ ] Sorting added streamers on homepage  
+- [ ] Replace favicon with Streamsters logo  
 - [ ] Add support for notifications when live  
 
 
