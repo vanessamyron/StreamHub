@@ -35,19 +35,20 @@ body {
 .themes-con {
 		background-color: #5c6a7d;
 		width: 100%;
-		font-size: 18px;
+		font-size: 30px;
 		border-radius: 0 0 25px 25px;
+		margin-top: 18px;
 }
 
-.themes-con button {
-		background: none;
-		border: none;
+#label {
+		margin-left: 5%;
 }
 
-.themes-con img {
-		height: 75px; 
-		width: auto;
-		padding: 25px;
+.themes-con p {
+		margin-left: 5%;
+		height: 70px;
+		text-align: center;
+		font-size: 20px;
 }
 
 .theme-obj { 
@@ -55,72 +56,4 @@ body {
 		display: inline-block;
 		margin: auto;
 		width: 32%;
-}
-
-.color-select:active {
-		border: 5px solid blue;
-		border-radius: 75px;
-		outline: none;
-}
-
-.color-select:focus {
-		border: 5px solid blue;
-		border-radius: 75px;
-		outline: none;
-}
-
-.color-select:visited {
-		border: 5px solid blue;
-		border-radius: 75px;
-		outline: none;
-}
-
-.twitch-con {
-		background-color: #5c6a7d;
-		width: 100%;
-		font-size: 18px;
-		border-radius: 0 0 25px 25px;
-}
-
-.twitch-con button {
-		background: none;
-		border: none;
-}
-
-.twitch-con img {
-		height: 75px; 
-		width: auto;
-		padding: 25px;
-}
-
-#trash-twitch {
-		height: 20px;
-		width: auto;
-}
-
-.mixer-con {
-		background-color: #5c6a7d;
-		width: 100%;
-		font-size: 18px;
-		border-radius: 0 0 25px 25px;
-}
-
-.mixer-con button {
-		background: none;
-		border: none;
-}
-
-.mixer-con img {
-		height: 75px; 
-		width: auto;
-		padding: 25px;
-}
-
-#trash-mixer {
-		height: 20px;
-		width: auto;
-}
-
-.mixer {
-		padding-bottom: 40px;
 }
