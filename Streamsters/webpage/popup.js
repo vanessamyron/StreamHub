@@ -111,6 +111,77 @@ async function getStreamerMixer() {
 				console.log("Offline");
 		})
 }
+var arr = new Array();
+function addDataToLocalStorage(status, name, title, viewers){
+	 getData();
+	 arr.push({
+		 status1:status,
+		 name1:name,
+		 title1:title,
+		 viewers1:viewers;
+	 });
+
+	 localStorage.setItem("localData", JSON.stringify(arr))
+	 showData();
+}
+
+
+
+function getDataFromLocalStorage(){
+		var str = localStorage.getItem("localData");
+
+		if(str != null)
+			arr = JSON.parse(str);
+
+
+}
+
+function deleteData(){
+	localStorage.clear()
+}
+
+function showData(){
+
+  getDataFromLocalStorage();
+	let tableRef = document.getElementById("onlineStreamersTable");
+
+ var x = tableRef.rows.length;
+ while(--x){
+	 tableRef.deleteRow(x);
+ }
+
+
+	for(i = 0 ; i < arr.length; i++){
+		let row = tableRef.insertRow(1);
+		let cell1 = row.insertCell(0);
+		let cell2 = row.insertCell(1);
+		let cell3 = row.insertCell(2);
+		let cell4 = row.insertCell(3);
+		let cell5 = row.insertCell(4);
+
+
+		var tds = document.getElementsByTagName("td");
+		let btn = document.createElement("button");
+		btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
+		cell5.appendChild(btn);
+
+	if(status == "Offline"){
+		tds[0].style.color = "#FF0000";
+		cell1.innerHTML = arr[i].status1;
+		cell2.innerHTML = arr[i].name1;
+		cell3.innerHTML = arr[i].title1;
+		cell4.innerHTML = arr[i].viwers1;
+	}else{
+
+		tds[0].style.color = "#008000";
+		cell1.innerHTML = status;
+		cell2.innerHTML = name;
+		cell3.innerHTML = title;
+		cell4.innerHTML = viewers;
+	}
+}
+}
+
 
 function addStreamer(status, name, title, viewers){
 	let tableRef = document.getElementById("onlineStreamersTable");
