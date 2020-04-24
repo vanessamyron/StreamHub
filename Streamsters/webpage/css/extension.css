@@ -1,0 +1,48 @@
+.center {
+		text-align: center;
+}
+
+body {
+		background-color: #6441a4;
+}
+
+p {
+		color: #1fbaed;
+}
+.streamers {
+		color: #444;
+		padding: 15px;
+		text-align: center;
+}
+
+.streamers p {
+		font-size: 16px;
+}
+
+.streamers img {
+		height: 30px;
+		width: 30px;;
+}
+
+.streamers td, th {
+		font-size: 16px;
+		color: #1fbaed;
+}
+
+.streamers tr {
+		background-color: #29374a;
+}
+
+.streamers button {
+		border-radius: 50%;
+		padding: 0;
+		height: 53px;
+		width: 53px;
+}
+
+#streamId {
+		border-radius: 20px;
+		border: 5px;
+		border-color: #3a485b;
+		border-style: outset;
+}
