@@ -36,7 +36,7 @@ const button = document.getElementById("homePageButton");
 button.addEventListener('click', goHome);
 
 function goHome() {
-	window.open("webpage/index.html", "_blank");
+	window.open("webpage/popup.html", "_blank");
 }
 
 //Function to get streamer data from Twitch's API
