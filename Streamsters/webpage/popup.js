@@ -166,17 +166,16 @@ function showData(){
 		btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
 		cell5.appendChild(btn);
 
-	if(arr[i].status1 == "Offline"){
-		tds[0].style.color = "#FF0000";
-		cell1.innerHTML = arr[i].status1;
-		cell2.innerHTML = arr[i].name1;
-		cell3.innerHTML = arr[i].title1;
-		cell4.innerHTML = arr[i].viewers1;
-	}else{
-
+	if(arr[i].status1 == "live"){
 		tds[0].style.color = "#008000";
 		cell1.innerHTML = arr[i].status1;
 		cell2.innerHTML = "<a href='https://www.twitch.tv/" + arr[i].name1 + "'<a><p>" + arr[i].name1 + "</p></a>";
+		cell3.innerHTML = arr[i].title1;
+		cell4.innerHTML = arr[i].viewers1;
+	}else{
+		tds[0].style.color = "#FF0000";
+		cell1.innerHTML = arr[i].status1;
+		cell2.innerHTML = "<p>" + arr[i].name1 + "</p>";
 		cell3.innerHTML =arr[i].title1;
 		cell4.innerHTML = arr[i].viewers1;
 	}
