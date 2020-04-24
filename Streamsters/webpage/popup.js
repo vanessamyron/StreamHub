@@ -171,14 +171,14 @@ function showData(){
 		cell1.innerHTML = arr[i].status1;
 		cell2.innerHTML = arr[i].name1;
 		cell3.innerHTML = arr[i].title1;
-		cell4.innerHTML = arr[i].viwers1;
+		cell4.innerHTML = arr[i].viewers1;
 	}else{
 
 		tds[0].style.color = "#008000";
-		cell1.innerHTML = status;
-		cell2.innerHTML = name;
-		cell3.innerHTML = title;
-		cell4.innerHTML = viewers;
+		cell1.innerHTML = arr[i].status1;
+		cell2.innerHTML = arr[i].name1;
+		cell3.innerHTML =arr[i].title1;
+		cell4.innerHTML = arr[i].viewers1;
 	}
 }
 }
