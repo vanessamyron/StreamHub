@@ -9,6 +9,9 @@ const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 // An API to get user follow
 const GET_URL_FOLLOW = "https://api.twitch.tv/kraken/users/<user ID>/follows/channels";
 
+var arr = new Array();
+
+
 //Get the button to add streamer, and run streamSelected() on click
 const addStreamButton = document.getElementById("addStreamButton");
 addStreamButton.addEventListener('click', streamSelected);
@@ -69,10 +72,12 @@ async function getStreamerTwitch() {
 		//Placing JSON array object into obj for better readability later
 		const obj = user.data[0];
 		if(obj === undefined) {
-			addStreamer("Offline" , document.querySelector("#streamId").value , " " , " ");
+		//	addStreamer("Offline" , document.querySelector("#streamId").value , " " , " ");
+		addDataToLocalStorage("Offline",document.querySelector("#streamId").value, " " , " ");
 		}
 		else {
-			addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
+		//	addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
+		addDataToLocalStorage(obj.type, obj.user_name, obj.title ,obj.viewer_count);
 			/*
 			WOrking on later -
 			chrome.runtime.getBackgroundPage(function(backgroundPage) {
@@ -103,7 +108,8 @@ async function getStreamerMixer() {
 
 			//User is already a parsed JSON object, can access data directly and check if user.online === true
 			if(user.online === true) {
-				addStreamer(user.online, user.token, user.viewersCurrent);
+				//addStreamer(user.online, user.token, user.viewersCurrent);
+			  addDataToLocalStorage(user.online, user.token, user.name ,user.viewersCurrent);
 				console.log(user.online);
 				console.log(user.viewersCurrent);
 			}
@@ -112,9 +118,34 @@ async function getStreamerMixer() {
 		})
 }
 
-function addStreamer(status, name, title, viewers){
+function addDataToLocalStorage(status, name, title, viewers){
+	 getDataFromLocalStorage();
+	 arr.push({
+		 status1:status,
+		 name1:name,
+		 title1:title,
+		 viewers1:viewers
+	 });
+
+	 localStorage.setItem("localData", JSON.stringify(arr))
+	 showData();
+}
+
+
+
+function getDataFromLocalStorage(){
+		var str = localStorage.getItem("localData");
+		if(str != null)
+			arr = JSON.parse(str);
+}
+
+function deleteData(){
+	localStorage.clear()
+}
+
+function showData(){
+  getDataFromLocalStorage();
 	let tableRef = document.getElementById("onlineStreamersTable");
-<<<<<<< HEAD
 
  var x = tableRef.rows.length;
  while(--x){
@@ -135,7 +166,7 @@ function addStreamer(status, name, title, viewers){
 		btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
 		cell5.appendChild(btn);
 
-	if(status === "Offline"){
+	if(status == "Offline"){
 		tds[0].style.color = "#FF0000";
 		cell1.innerHTML = arr[i].status1;
 		cell2.innerHTML = arr[i].name1;
@@ -149,34 +180,120 @@ function addStreamer(status, name, title, viewers){
 		cell3.innerHTML =arr[i].title1;
 		cell4.innerHTML = arr[i].viewers1;
 	}
-=======
-	let row = tableRef.insertRow(1);
-	let cell1 = row.insertCell(0);
-	let cell2 = row.insertCell(1);
-	let cell3 = row.insertCell(2);
-	let cell4 = row.insertCell(3);
-	let cell5 = row.insertCell(4);
-	var tds = document.getElementsByTagName("td");
-	let btn = document.createElement("button");
-	btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
-	cell5.appendChild(btn);
-
-if(status == "Offline"){
-	tds[0].style.color = "#FF0000";
-	cell1.innerHTML = status;
-	cell2.innerHTML = name;
-	cell3.innerHTML = title;
-	cell4.innerHTML = viewers;
-}else{
-
-	tds[0].style.color = "#008000";
-	cell1.innerHTML = status;
-	cell2.innerHTML = name;
-	cell3.innerHTML = title;
-	cell4.innerHTML = viewers;
->>>>>>> 69bb1d5123b725b99184a8421c3868f2a3c44c03
 }
 }
+
+
+//Function to sort the table by headers where n is the column # starting with 0
+function sortTable(n){
+	var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("onlineStreamersTable");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+
+
+function sortTableNum(n){
+	var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+	table = document.getElementById("onlineStreamersTable");
+	switching = true;
+	// Set the sorting direction to ascending:
+	dir = "asc";
+	/* Make a loop that will continue until
+	no switching has been done: */
+	while (switching) {
+		// Start by saying: no switching is done:
+		switching = false;
+		rows = table.rows;
+		/* Loop through all table rows (except the
+		first, which contains table headers): */
+		for (i = 1; i < (rows.length - 1); i++) {
+			// Start by saying there should be no switching:
+			shouldSwitch = false;
+			/* Get the two elements you want to compare,
+			one from current row and one from the next: */
+			x = rows[i].getElementsByTagName("TD")[n];
+			y = rows[i + 1].getElementsByTagName("TD")[n];
+			/* Check if the two rows should switch place,
+			based on the direction, asc or desc: */
+			if (dir == "asc") {
+				if (Number(x.innerHTML) > Number(y.innerHTML)) {
+	  			shouldSwitch = true;
+	  			break;
+			}
+			} else if (dir == "desc") {
+				if (Number(x.innerHTML) < Number(y.innerHTML)) {
+	  			shouldSwitch = true;
+	  		break;
+			}
+			}
+		}
+		if (shouldSwitch) {
+			/* If a switch has been marked, make the switch
+			and mark that a switch has been done: */
+			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+			switching = true;
+			// Each time a switch is done, increase this count by 1:
+			switchcount ++;
+		} else {
+			/* If no switching has been done AND the direction is "asc",
+			set the direction to "desc" and run the while loop again. */
+			if (switchcount == 0 && dir == "asc") {
+				dir = "desc";
+				switching = true;
+			}
+		}
+	}
+}
+
 
 function getFollowers(name){
 return new Promise((resolve,reject) => {
