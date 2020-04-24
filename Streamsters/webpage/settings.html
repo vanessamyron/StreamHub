@@ -24,7 +24,8 @@
 		$(function() {
 			// alert('HELLO');
 			$.themes.setDefaults({themeBase: 'themesDemo/', cookieExpiry: 7});
-			$('#themeSelection').themes({themes: ['Default', 'Blue', 'Green', 'Crimson', 'Orange', 'Blue/Purple', 'Chiffon', 'Aqua', 'Rose', 'Berry', 'Light', 'Dark', 'FSU']});
+			$('#themeSelection').themes();
+			$('#date').datepicker();
 			alert('HELLO');
 		});
 	</script>
@@ -33,13 +34,59 @@
 
 		<div class="header">
 				<h1>Settings</h1>
-				<a href="./popup.html"><img src="./photos/home.png" alt="Homepage button"></a>
+				<a href="./index.html"><img src="./photos/home.png" alt="Homepage button"></a>
 		</div>
+		<p><span id="label">Select your new theme:</span> <span id="themeSelection"></span></p>
+
+		<fieldset class="demo">
+	<legend>jQuery UI sample</legend>
+		<h2 class="demoHeaders">Datepicker</h2>
+	<div id="date"></div>
+</fieldset>
 
 		<div class="themes">
 				<button class="collapsible themes-col">Themes</button>
 				<div class="content themes-con">
-						<span id="label">Select your new theme:</span><p><span id="themeSelection"></span></p>
+						<div class="theme-obj">
+								<button class="color-select">
+										<img id="theme1" src="./photos/themes/theme1.png" alt="Default colors white with black text">
+								</button>
+								<p>Light Theme</p>
+						</div>
+						<div class="theme-obj">
+								<button class="color-select">
+										<img id="theme2" src="./photos/themes/theme2.png" alt="Dark mode, black with white text">
+								</button>
+								<p>Dark Theme</p>
+						</div>
+						<div class="theme-obj">
+								<button class="color-select">
+										<img id="theme3" src="./photos/themes/theme3.png" alt="Grey with white text">
+								</button>
+								<p>Grey Theme</p>
+						</div>
+				</div>
+		</div>
+		<div class="twitch">
+				<button class="collapsible twitch-col">Twitch</button>
+				<div class="content twitch-con">
+						<p>Link Account</p>
+						<p>Unlink Account</p>
+						<div id="clear">
+								<p>Clear Added Streamers</p>
+								<img id="trash-twitch" src="./photos/trash.png" alt="Trash can icon">
+						</div>
+				</div>
+		</div>
+		<div class="mixer">
+				<button class="collapsible mixer-col">Mixer</button>
+				<div class="content mixer-con">
+						<p>Link Account</p>
+						<p>Unlink Account</p>
+						<div id="clear">
+								<p>Clear Added Streamers</p>
+								<img id="trash-mixer" src="./photos/trash.png" alt="Trash can icon">
+						</div>
 				</div>
 		</div>
 </body>

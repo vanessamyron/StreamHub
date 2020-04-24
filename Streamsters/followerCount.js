@@ -36,7 +36,7 @@ const button = document.getElementById("homePageButton");
 button.addEventListener('click', goHome);
 
 function goHome() {
-	window.open("./index.html", "_blank");
+	window.open("webpage/index.html", "_blank");
 }
 
 //Function to get streamer data from Twitch's API
@@ -55,20 +55,13 @@ async function getStreamerTwitch() {
 		},
 	})
 	.then((response) => response.json())
-	.then((user) => {
-		console.log('Success:', user);
+	.then((user) =>	console.log('Success:', user));
 
-		var tds = document.getElementsByTagName("td");
-		var duplicate = false;
-		for(var i = 0, j = tds.length; i < j; ++i){
-				if(tds[i].innerHTML == document.querySelector("#streamId").value){
-						duplicate = true;
-				}
-		}
-		if(!duplicate){
 		//Placing JSON array object into obj for better readability later
 		const obj = user.data[0];
 		if(obj === undefined) {
+
+
 			addStreamer("Offline" , document.querySelector("#streamId").value , " " , " ");
 		}
 		else {
@@ -80,11 +73,8 @@ async function getStreamerTwitch() {
 			});
 			*/
 		}
-	}else{
-		console.log("User already in list");
 	}
-	})
-}
+
 
 //Function to get streamer data from Mixer's API
 async function getStreamerMixer() {
@@ -103,7 +93,7 @@ async function getStreamerMixer() {
 
 			//User is already a parsed JSON object, can access data directly and check if user.online === true
 			if(user.online === true) {
-				addStreamer(user.online, user.token, user.viewersCurrent);
+				addStreamer(user.online, user.token, user.title ,user.viewersCurrent);
 				console.log(user.online);
 				console.log(user.viewersCurrent);
 			}
@@ -114,68 +104,33 @@ async function getStreamerMixer() {
 
 function addStreamer(status, name, title, viewers){
 	let tableRef = document.getElementById("onlineStreamersTable");
-<<<<<<< HEAD
-
- var x = tableRef.rows.length;
- while(--x){
-	 tableRef.deleteRow(x);
- }
-
-	for(i = 0 ; i < arr.length; i++){
-		let row = tableRef.insertRow(1);
-		let cell1 = row.insertCell(0);
-		let cell2 = row.insertCell(1);
-		let cell3 = row.insertCell(2);
-		let cell4 = row.insertCell(3);
-		let cell5 = row.insertCell(4);
-
-
-		var tds = document.getElementsByTagName("td");
-		let btn = document.createElement("button");
-		btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
-		cell5.appendChild(btn);
-
-	if(status === "Offline"){
-		tds[0].style.color = "#FF0000";
-		cell1.innerHTML = arr[i].status1;
-		cell2.innerHTML = arr[i].name1;
-		cell3.innerHTML = arr[i].title1;
-		cell4.innerHTML = arr[i].viewers1;
-	}else{
-
-		tds[0].style.color = "#008000";
-		cell1.innerHTML = arr[i].status1;
-		cell2.innerHTML = "<a href='https://www.twitch.tv/" + arr[i].name1 + "'<a><p>" + arr[i].name1 + "</p></a>";
-		cell3.innerHTML =arr[i].title1;
-		cell4.innerHTML = arr[i].viewers1;
-	}
-=======
 	let row = tableRef.insertRow(1);
 	let cell1 = row.insertCell(0);
 	let cell2 = row.insertCell(1);
 	let cell3 = row.insertCell(2);
 	let cell4 = row.insertCell(3);
-	let cell5 = row.insertCell(4);
+
+
+	if(status == "Offline"){
+
 	var tds = document.getElementsByTagName("td");
-	let btn = document.createElement("button");
-	btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
-	cell5.appendChild(btn);
-
-if(status == "Offline"){
 	tds[0].style.color = "#FF0000";
-	cell1.innerHTML = status;
-	cell2.innerHTML = name;
-	cell3.innerHTML = title;
-	cell4.innerHTML = viewers;
-}else{
 
-	tds[0].style.color = "#008000";
+
 	cell1.innerHTML = status;
 	cell2.innerHTML = name;
 	cell3.innerHTML = title;
 	cell4.innerHTML = viewers;
->>>>>>> 69bb1d5123b725b99184a8421c3868f2a3c44c03
-}
+	}else{
+
+	var tds = document.getElementsByTagName("td");
+	tds[0].style.color = "#008000";
+
+	cell1.innerHTML = status;
+	cell2.innerHTML = name;
+	cell3.innerHTML = title;
+	cell4.innerHTML = viewers;
+	}
 }
 
 function getFollowers(name){

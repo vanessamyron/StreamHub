@@ -18,9 +18,9 @@ function Themes() {
 	this._defaults = {
 		themes: [],  // List of theme IDs to use, empty for all
 		themeBase: '',  // The base URL for all the theme files
-		themeFile: 'colortheme.css', // Name of the theme file
+		themeFile: 'jquery-ui.css', // Name of the theme file
 		defaultTheme: '', // The ID of the default theme, first one if blank
-		icons: 'img/image.png', // Horizontal amalgamation of all theme icons
+		icons: 'img/themes.gif', // Horizontal amalgamation of all theme icons
 		iconSize: [23, 20],  // The width and height of the individual icons
 		previews: 'img/themes-preview.gif', // Horizontal amalgamation of all theme previews
 		previewSize: [90, 80],  // The width and height of the individual previews
@@ -32,19 +32,30 @@ function Themes() {
 		onSelect: null  // Callback on theme selection, theme ID and URL are passed as parameters
 	};
 	this._themes = {  // The definitions of the available themes
-		'Default': {display: 'Default', icon: 0,url: 'Default/'},
-		'Blue': {display: 'Blue', icon: 1, preview: 1, url: 'Blue/'},
-		'Green': {display: 'Green', icon: 2, preview: 2, url: 'Green/'},
-		'Crimson': {display: 'Crimson', icon: 3, preview: 3, url: 'Crimson/'},
-		'Orange': {display: 'Orange', icon: 4, preview: 4, url: 'Orange/'},
-		'Blue/Purple': {display: 'Blue/Purple', icon: 5, preview: 5, url: 'Blue-Purple/'},
-		'Chiffon': {display: 'Chiffon', icon: 6, preview: 6, url: 'Chiffon/'},
-		'Aqua': {display: 'Aqua', icon: 7, preview: 7, url: 'Aqua/'},
-		'Rose': {display: 'Rose', icon: 8, preview: 8, url: 'Rose/'},
-		'Berry': {display: 'Berry', icon: 9, preview: 9, url: 'Berry/'},
-		'Light': {display: 'Light', icon: 10, preview: 10, url: 'Light/'},
-		'Dark': {display: 'Dark', icon: 11, preview: 11, url: 'Dark/'},
-		'FSU': {display: 'FSU', icon: 12, preview: 12, url: 'FSU/'},
+		'blacktie': {display: 'Black Tie', icon: 0, preview: 0, url: 'black-tie/'},
+		'blitzer': {display: 'Blitzer', icon: 1, preview: 1, url: 'blitzer/'},
+		'cupertino': {display: 'Cupertino', icon: 2, preview: 2, url: 'cupertino/'},
+		'darkhive': {display: 'Dark Hive', icon: 17, preview: 17, url: 'dark-hive/'},
+		'dotluv': {display: 'Dot Luv', icon: 3, preview: 3, url: 'dot-luv/'},
+		'eggplant': {display: 'Eggplant', icon: 18, preview: 18, url: 'eggplant/'},
+		'excitebike': {display: 'Excite Bike', icon: 4, preview: 4, url: 'excite-bike/'},
+		'flick': {display: 'Flick', icon: 19, preview: 19, url: 'flick/'},
+		'hotsneaks': {display: 'Hot Sneaks', icon: 5, preview: 5, url: 'hot-sneaks/'},
+		'humanity': {display: 'Humanity', icon: 6, preview: 6, url: 'humanity/'},
+		'lefrog': {display: 'Le Frog', icon: 20, preview: 20, url: 'le-frog/'},
+		'mintchoc': {display: 'Mint Choc', icon: 7, preview: 7, url: 'mint-choc/'},
+		'overcast': {display: 'Overcast', icon: 21, preview: 21, url: 'overcast/'},
+		'peppergrinder': {display: 'Pepper Grinder', icon: 22, preview: 22, url: 'pepper-grinder/'},
+		'redmond': {display: 'Redmond', icon: 8, preview: 8, url: 'redmond/'},
+		'smoothness': {display: 'Smoothness', icon: 9, preview: 9, url: 'smoothness/'},
+		'southstreet': {display: 'South Street', icon: 10, preview: 10, url: 'south-street/'},
+		'start': {display: 'Start', icon: 11, preview: 11, url: 'start/'},
+		'sunny': {display: 'Sunny', icon: 23, preview: 23, url: 'sunny/'},
+		'swankypurse': {display: 'Swanky Purse', icon: 12, preview: 12, url: 'swanky-purse/'},
+		'trontastic': {display: 'Trontastic', icon: 13, preview: 13, url: 'trontastic/'},
+		'uidarkness': {display: 'UI Darkess', icon: 14, preview: 14, url: 'ui-darkness/'},
+		'uilightness': {display: 'UI Lightness', icon: 15, preview: 15, url: 'ui-lightness/'},
+		'vader': {display: 'Vader', icon: 16, preview: 16, url: 'vader/'}
 	};
 }
 
