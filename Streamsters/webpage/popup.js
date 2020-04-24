@@ -78,12 +78,7 @@ async function getStreamerTwitch() {
 		else {
 		//	addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
 		addDataToLocalStorage(obj.type, obj.user_name, obj.title ,obj.viewer_count);
-			/*
-			WOrking on later -
-			chrome.runtime.getBackgroundPage(function(backgroundPage) {
-				backgroundPage.addToStorage(user,addStreamer(obj.type, obj.user_name, obj.viewer_count));
-			});
-			*/
+
 		}
 	}else{
 		console.log("User already in list");
