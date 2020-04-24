@@ -118,7 +118,7 @@ function addDataToLocalStorage(status, name, title, viewers){
 		 status1:status,
 		 name1:name,
 		 title1:title,
-		 viewers1:viewers;
+		 viewers1:viewers
 	 });
 
 	 localStorage.setItem("localData", JSON.stringify(arr))
