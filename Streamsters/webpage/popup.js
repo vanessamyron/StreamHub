@@ -114,7 +114,7 @@ async function getStreamerMixer() {
 }
 var arr = new Array();
 function addDataToLocalStorage(status, name, title, viewers){
-	 getData();
+	 getDataFromLocalStorage();
 	 arr.push({
 		 status1:status,
 		 name1:name,
