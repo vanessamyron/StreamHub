@@ -176,7 +176,7 @@ function showData(){
 
 		tds[0].style.color = "#008000";
 		cell1.innerHTML = arr[i].status1;
-		cell2.innerHTML = arr[i].name1;
+		cell2.innerHTML = "<a href='https://www.twitch.tv/" + arr[i].name1 + "'<a><p>" + arr[i].name1 + "</p></a>";
 		cell3.innerHTML =arr[i].title1;
 		cell4.innerHTML = arr[i].viewers1;
 	}

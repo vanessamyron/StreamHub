@@ -101,3 +101,7 @@ p {
 		margin-left: 49%;
 		width: 2%;
 }
+
+a {
+		text-decoration: none;
+}
