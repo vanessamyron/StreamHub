@@ -61,7 +61,7 @@ p {
 
 .streamers img {
 		height: 50px;
-		width: auto;
+		width: 50px;;
 }
 
 .streamers td, th {
@@ -73,8 +73,11 @@ p {
 		background-color: #29374a;
 }
 
-.streamers img {
-		background-color: none;
+.streamers button {
+		border-radius: 50%;
+		padding: 0;
+		height: 53px;
+		width: 53px;
 }
 
 #streamId {
