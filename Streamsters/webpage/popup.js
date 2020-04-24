@@ -9,6 +9,9 @@ const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 // An API to get user follow
 const GET_URL_FOLLOW = "https://api.twitch.tv/kraken/users/<user ID>/follows/channels";
 
+var arr = new Array();
+
+
 //Get the button to add streamer, and run streamSelected() on click
 const addStreamButton = document.getElementById("addStreamButton");
 addStreamButton.addEventListener('click', streamSelected);
@@ -69,10 +72,12 @@ async function getStreamerTwitch() {
 		//Placing JSON array object into obj for better readability later
 		const obj = user.data[0];
 		if(obj === undefined) {
-			addStreamer("Offline" , document.querySelector("#streamId").value , " " , " ");
+		//	addStreamer("Offline" , document.querySelector("#streamId").value , " " , " ");
+		addDataToLocalStorage("Offline",document.querySelector("#streamId").value, " " , " ");
 		}
 		else {
-			addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
+		//	addStreamer(obj.type, obj.user_name, obj.title ,obj.viewer_count);
+		addDataToLocalStorage(obj.type, obj.user_name, obj.title ,obj.viewer_count);
 			/*
 			WOrking on later -
 			chrome.runtime.getBackgroundPage(function(backgroundPage) {
@@ -103,7 +108,8 @@ async function getStreamerMixer() {
 
 			//User is already a parsed JSON object, can access data directly and check if user.online === true
 			if(user.online === true) {
-				addStreamer(user.online, user.token, user.viewersCurrent);
+				//addStreamer(user.online, user.token, user.viewersCurrent);
+			  addDataToLocalStorage(user.online, user.token, user.name ,user.viewersCurrent);
 				console.log(user.online);
 				console.log(user.viewersCurrent);
 			}
@@ -112,34 +118,71 @@ async function getStreamerMixer() {
 		})
 }
 
-function addStreamer(status, name, title, viewers){
+function addDataToLocalStorage(status, name, title, viewers){
+	 getDataFromLocalStorage();
+	 arr.push({
+		 status1:status,
+		 name1:name,
+		 title1:title,
+		 viewers1:viewers
+	 });
+
+	 localStorage.setItem("localData", JSON.stringify(arr))
+	 showData();
+}
+
+
+
+function getDataFromLocalStorage(){
+		var str = localStorage.getItem("localData");
+		if(str != null)
+			arr = JSON.parse(str);
+}
+
+function deleteData(){
+	localStorage.clear()
+}
+
+function showData(){
+  getDataFromLocalStorage();
 	let tableRef = document.getElementById("onlineStreamersTable");
-	let row = tableRef.insertRow(1);
-	let cell1 = row.insertCell(0);
-	let cell2 = row.insertCell(1);
-	let cell3 = row.insertCell(2);
-	let cell4 = row.insertCell(3);
-	let cell5 = row.insertCell(4);
-	var tds = document.getElementsByTagName("td");
-	let btn = document.createElement("button");
-	btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
-	cell5.appendChild(btn);
 
-if(status == "Offline"){
-	tds[0].style.color = "#FF0000";
-	cell1.innerHTML = status;
-	cell2.innerHTML = name;
-	cell3.innerHTML = title;
-	cell4.innerHTML = viewers;
-}else{
+ var x = tableRef.rows.length;
+ while(--x){
+	 tableRef.deleteRow(x);
+ }
 
-	tds[0].style.color = "#008000";
-	cell1.innerHTML = status;
-	cell2.innerHTML = name;
-	cell3.innerHTML = title;
-	cell4.innerHTML = viewers;
+	for(i = 0 ; i < arr.length; i++){
+		let row = tableRef.insertRow(1);
+		let cell1 = row.insertCell(0);
+		let cell2 = row.insertCell(1);
+		let cell3 = row.insertCell(2);
+		let cell4 = row.insertCell(3);
+		let cell5 = row.insertCell(4);
+
+
+		var tds = document.getElementsByTagName("td");
+		let btn = document.createElement("button");
+		btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
+		cell5.appendChild(btn);
+
+	if(status == "Offline"){
+		tds[0].style.color = "#FF0000";
+		cell1.innerHTML = arr[i].status1;
+		cell2.innerHTML = arr[i].name1;
+		cell3.innerHTML = arr[i].title1;
+		cell4.innerHTML = arr[i].viewers1;
+	}else{
+
+		tds[0].style.color = "#008000";
+		cell1.innerHTML = arr[i].status1;
+		cell2.innerHTML = arr[i].name1;
+		cell3.innerHTML =arr[i].title1;
+		cell4.innerHTML = arr[i].viewers1;
+	}
 }
 }
+
 
 //Function to sort the table by headers where n is the column # starting with 0
 function sortTable(n){
