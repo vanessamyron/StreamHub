@@ -108,7 +108,8 @@ async function getStreamerMixer() {
 
 			//User is already a parsed JSON object, can access data directly and check if user.online === true
 			if(user.online === true) {
-				addStreamer(user.online, user.token, user.viewersCurrent);
+				//addStreamer(user.online, user.token, user.viewersCurrent);
+			  addDataToLocalStorage(user.online, user.token, user.name ,user.viewersCurrent);
 				console.log(user.online);
 				console.log(user.viewersCurrent);
 			}
@@ -134,11 +135,8 @@ function addDataToLocalStorage(status, name, title, viewers){
 
 function getDataFromLocalStorage(){
 		var str = localStorage.getItem("localData");
-
 		if(str != null)
 			arr = JSON.parse(str);
-
-
 }
 
 function deleteData(){
@@ -146,7 +144,6 @@ function deleteData(){
 }
 
 function showData(){
-
   getDataFromLocalStorage();
 	let tableRef = document.getElementById("onlineStreamersTable");
 
@@ -154,7 +151,6 @@ function showData(){
  while(--x){
 	 tableRef.deleteRow(x);
  }
-
 
 	for(i = 0 ; i < arr.length; i++){
 		let row = tableRef.insertRow(1);
@@ -187,35 +183,6 @@ function showData(){
 }
 }
 
-
-function addStreamer(status, name, title, viewers){
-	let tableRef = document.getElementById("onlineStreamersTable");
-	let row = tableRef.insertRow(1);
-	let cell1 = row.insertCell(0);
-	let cell2 = row.insertCell(1);
-	let cell3 = row.insertCell(2);
-	let cell4 = row.insertCell(3);
-	let cell5 = row.insertCell(4);
-	var tds = document.getElementsByTagName("td");
-	let btn = document.createElement("button");
-	btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
-	cell5.appendChild(btn);
-
-if(status == "Offline"){
-	tds[0].style.color = "#FF0000";
-	cell1.innerHTML = status;
-	cell2.innerHTML = name;
-	cell3.innerHTML = title;
-	cell4.innerHTML = viewers;
-}else{
-
-	tds[0].style.color = "#008000";
-	cell1.innerHTML = status;
-	cell2.innerHTML = name;
-	cell3.innerHTML = title;
-	cell4.innerHTML = viewers;
-}
-}
 
 //Function to sort the table by headers where n is the column # starting with 0
 function sortTable(n){
