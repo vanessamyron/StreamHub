@@ -166,7 +166,7 @@ function showData(){
 		btn.innerHTML = "<img src='./photos/plus.png' alt='Add streamers button.'>";
 		cell5.appendChild(btn);
 
-	if(status == "Offline"){
+	if(arr[i].status1 == "Offline"){
 		tds[0].style.color = "#FF0000";
 		cell1.innerHTML = arr[i].status1;
 		cell2.innerHTML = arr[i].name1;
