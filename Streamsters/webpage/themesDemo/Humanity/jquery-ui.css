@@ -1,0 +1,9 @@
+/*! jQuery UI - v1.12.1 - 2020-04-03
+* http://jqueryui.com
+* Includes: draggable.css, core.css, resizable.css, selectable.css, sortable.css, accordion.css, autocomplete.css, menu.css, button.css, controlgroup.css, checkboxradio.css, datepicker.css, dialog.css, progressbar.css, selectmenu.css, slider.css, spinner.css, tabs.css, tooltip.css, theme.css
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?scope=&folderName=dot-luv&cornerRadiusShadow=8px&offsetLeftShadow=-8px&offsetTopShadow=-8px&thicknessShadow=8px&opacityShadow=30&bgImgOpacityShadow=0&bgTextureShadow=flat&bgColorShadow=aaaaaa&opacityOverlay=30&bgImgOpacityOverlay=0&bgTextureOverlay=flat&bgColorOverlay=aaaaaa&iconColorError=ffffff&fcError=ffffff&borderColorError=cd0a0a&bgImgOpacityError=30&bgTextureError=dots_small&bgColorError=a32d00&iconColorHighlight=ffffff&fcHighlight=ffffff&borderColorHighlight=052f57&bgImgOpacityHighlight=30&bgTextureHighlight=dots_medium&bgColorHighlight=0b58a2&iconColorActive=00498f&fcActive=75abff&borderColorActive=096ac8&bgImgOpacityActive=40&bgTextureActive=flat&bgColorActive=292929&iconColorHover=ffffff&fcHover=ffffff&borderColorHover=222222&bgImgOpacityHover=40&bgTextureHover=dots_small&bgColorHover=00498f&iconColorDefault=9ccdfc&fcDefault=ffffff&borderColorDefault=333333&bgImgOpacityDefault=20&bgTextureDefault=dots_small&bgColorDefault=333333&iconColorContent=9ccdfc&fcContent=d9d9d9&borderColorContent=000000&bgImgOpacityContent=20&bgTextureContent=gloss_wave&bgColorContent=111111&iconColorHeader=98d2fb&fcHeader=f6f6f6&borderColorHeader=0b3e6f&bgImgOpacityHeader=15&bgTextureHeader=diagonals_thick&bgColorHeader=0b3e6f&cornerRadius=4px&fsDefault=1.3em&fwDefault=bold&ffDefault=Arial%2Csans-serif
+* Copyright jQuery Foundation and other contributors; Licensed MIT */
+body {
+    margin: 16px 10%;
+    background-color: purple;
+}

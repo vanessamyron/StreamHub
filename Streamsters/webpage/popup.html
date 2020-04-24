@@ -7,33 +7,38 @@
 		<link rel="stylesheet" href="styles/styles.css">
 
 		</head>
-		<body>
+		<body onload = "showData()">
 				<div class="search-bar center">
 						<div class="search">
-								<input type="text" id="streamId">
-								<button id="addStreamButton"><img class="search-icon" src="./photos/favicon-32x32.png" alt="search icon"></button>
-								<!-- <button id="homePageButton"><img class="icon-top" src="./photos/home.png" alt="Homepage button"></button> -->
-								<a href="./index.html"><img class="icon-top" src="./photos/home.png" alt="Homepage button"></a>
+								<input type="text" placeholder="Enter username to search for user on either Twitch or Mixer" id="streamId">
+								<button id="addStreamButton"><img class="search-icon" src="./photos/search.png" alt="search icon"></button>
 								<a href="./settings.html"><img class="icon-top" src="./photos/settings.png" alt="Settings Icon"></a>
 						</div>
 						<br>
-						<input class="radio" type="radio" name="website" value="twitch"><img style="height:30px;" src="./photos/twitch.png" alt="Twitch logo">
-						<input class="radio" type="radio" name="website" value="mixer"><img style="height:30px;" src="./photos/mixer.jpg" alt="Mixer logo">
+						<div class="inline-radio">
+								<img style="height:30px;" src="./photos/twitch.png" alt="Twitch logo"><input class="radio" type="radio" name="website" value="twitch">
+						</div>
+						<div class="inline-radio">
+								<img style="height:30px;" src="./photos/mixer.png" alt="Mixer logo"><input class="radio" type="radio" name="website" value="mixer">
+						</div>
 				</div>
 
 				<div class="streamers">
 						<table style="width:100%" id="onlineStreamersTable">
 									<tr>
-										<th>Status</th>
-										<th>Display Name</th>
-										<th>Title</th>
-										<th>Viewer Count</th>
+										<th onclick = "sortTable(0)" style="cursor:pointer" id = "statusClick">Status</th>
+										<th onClick = "sortTable(1)" style="cursor:pointer" id = "dispayClick">Display Name</th>
+										<th onClick = "sortTable(2)" style="cursor:pointer" id = "titleClick">Title</th>
+										<th onClick = "sortTableNum(3)" style="cursor:pointer" id = "viewerClick">Viewer Count</th>
 										<th>Add Streamer button</th>
 									</tr>
 								</table>
 
 			</div>
+
+			<input id="delete-button" type = "image" src="./photos/trash.png" onclick="deleteData()">
 		</body>
 
-		<script src="popup.js" defer></script>
+		<script src="popup.js" defer>	 </script>
+
 </html>
