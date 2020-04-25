@@ -37,7 +37,6 @@ function Themes() {
 		'Green': {display: 'Green', icon: 2, preview: 2, url: 'Green/'},
 		'Crimson': {display: 'Crimson', icon: 3, preview: 3, url: 'Crimson/'},
 		'Orange': {display: 'Orange', icon: 4, preview: 4, url: 'Orange/'},
-		'Blue/Purple': {display: 'Blue/Purple', icon: 5, preview: 5, url: 'Blue-Purple/'},
 		'Chiffon': {display: 'Chiffon', icon: 6, preview: 6, url: 'Chiffon/'},
 		'Aqua': {display: 'Aqua', icon: 7, preview: 7, url: 'Aqua/'},
 		'Rose': {display: 'Rose', icon: 8, preview: 8, url: 'Rose/'},
