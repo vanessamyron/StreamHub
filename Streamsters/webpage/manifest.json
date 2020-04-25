@@ -16,7 +16,7 @@
 	"content_scripts": [
 		{
 			"matches": ["<all_urls>"],
-			"js": ["popup.js"]
+			"js": ["extension.js"]
 		}
 	],
 	"browser_action": {
