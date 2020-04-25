@@ -17,7 +17,7 @@ function Themes() {
 	this._linkID = 'th' + new Date().getTime();
 	this._defaults = {
 		themes: [],  // List of theme IDs to use, empty for all
-		themeBase: '',  // The base URL for all the theme files
+		themeBase: 'themesDemo/',  // The base URL for all the theme files
 		themeFile: 'colortheme.css', // Name of the theme file
 		defaultTheme: '', // The ID of the default theme, first one if blank
 		icons: 'img/image.png', // Horizontal amalgamation of all theme icons
@@ -32,12 +32,11 @@ function Themes() {
 		onSelect: null  // Callback on theme selection, theme ID and URL are passed as parameters
 	};
 	this._themes = {  // The definitions of the available themes
-		'Default': {display: 'Default', icon: 0,url: 'Default/'},
+		'Default': {display: 'Default', icon: 0,preview: 0, url: 'Default/'},
 		'Blue': {display: 'Blue', icon: 1, preview: 1, url: 'Blue/'},
 		'Green': {display: 'Green', icon: 2, preview: 2, url: 'Green/'},
 		'Crimson': {display: 'Crimson', icon: 3, preview: 3, url: 'Crimson/'},
 		'Orange': {display: 'Orange', icon: 4, preview: 4, url: 'Orange/'},
-		'Blue/Purple': {display: 'Blue/Purple', icon: 5, preview: 5, url: 'Blue-Purple/'},
 		'Chiffon': {display: 'Chiffon', icon: 6, preview: 6, url: 'Chiffon/'},
 		'Aqua': {display: 'Aqua', icon: 7, preview: 7, url: 'Aqua/'},
 		'Rose': {display: 'Rose', icon: 8, preview: 8, url: 'Rose/'},
@@ -73,7 +72,7 @@ $.extend(Themes.prototype, {
 	_init: function() {
 		var search = new RegExp(this.cookieName + '=([^;]*)');
 		var matches = search.exec(document.cookie);
-		var themeId = (matches ? matches[1] : '') || this._defaults.defaultTheme;
+		var themeId = localStorage.getItem(this.cookieName)/*(matches ? matches[1] : '')*/ || this._defaults.defaultTheme;
 		var firstId = '';
 		var found = false;
 		for (var id in this._themes) {
@@ -247,7 +246,9 @@ $.extend(Themes.prototype, {
 			var expiryDate = (inst.options.cookieExpiry ?
 				(typeof inst.options.cookieExpiry == 'number' ?
 				addDays(inst.options.cookieExpiry) : inst.options.cookieExpiry) : null);
-			// Save theme setting as cookie
+			//Store theme in local storage
+			localStorage.setItem(plugin.cookieName, id);
+
 			document.cookie = plugin.cookieName + '=' + id +
 				(expiryDate ? '; expires=' + expiryDate.toUTCString() : '') +
 				(inst.options.cookiePath ? '; path=' + inst.options.cookiePath : '') +
