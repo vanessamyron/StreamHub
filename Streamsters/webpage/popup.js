@@ -1,4 +1,3 @@
-window.onload = function() { 
 const BASE_URL_TWITCH = "https://api.twitch.tv/helix/streams?user_login=";
 
 //Our API Key/client id for twitch.tv
@@ -306,6 +305,4 @@ return new Promise((resolve,reject) => {
 				resolve(PEOPLE_FOLLOWERS)
 	})
 })
-}
-
 }
