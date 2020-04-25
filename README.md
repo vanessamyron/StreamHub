@@ -2,9 +2,9 @@
 ### Sprint check list    
 - [ ] Not done item yet  
 - [x] Done item    
-- [x] Cookies to remember streamers  - 
-- [x] Cookies to remember themes - Laura: Working on it.
-- [x] Support for themes on base webpage - Laura: Colors for setting themes done, working on passing them to index and addStreamers
+- [x] Cookies to remember streamers
+- [x] Cookies to remember themes 
+- [x] Support for themes on base webpage
 - [ ] Support for themes on chrome extension   
 - [x] Sorting added streamers on homepage  
 - [x] Replace favicon with Streamsters logo -Isaac  
