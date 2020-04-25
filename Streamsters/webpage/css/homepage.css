@@ -108,3 +108,10 @@ p {
 a {
 		text-decoration: none;
 }
+
+#game-link {
+		color: #1fbaed;
+		align: center;
+		text-align: center;
+		font-size: 20px;
+}
