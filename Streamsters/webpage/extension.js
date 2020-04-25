@@ -1,4 +1,4 @@
-window.onload = function() { 
+window.onload = function() {
 const BASE_URL_TWITCH = "https://api.twitch.tv/helix/streams?user_login=";
 
 //Our API Key/client id for twitch.tv
@@ -11,37 +11,6 @@ const BASE_URL_MIXER = "https://mixer.com/api/v1/channels/";
 const GET_URL_FOLLOW = "https://api.twitch.tv/kraken/users/<user ID>/follows/channels";
 
 var arr = new Array();
-
-
-//Get the button to add streamer, and run streamSelected() on click
-const addStreamButton = document.getElementById("addStreamButton");
-addStreamButton.addEventListener('click', streamSelected);
-
-function streamSelected() {
-	let ele = document.getElementsByName('website');
-
-	for(i = 0; i < ele.length; i++) {
-		if(ele[i].checked) {
-			switch(ele[i].value) {
-				case "twitch":
-					getStreamerTwitch();
-					return;
-				case "mixer":
-					getStreamerMixer();
-					return;
-			}
-		}
-	}
-location.reload();
-}
-
-//Get the homepage button, and run streamSelected() on click
-const button = document.getElementById("homePageButton");
-button.addEventListener('click', goHome);
-
-function goHome() {
-	window.open("./index.html", "_blank");
-}
 
 //Function to get streamer data from Twitch's API
 /* Twitch seems to require that the client-id be in the Javascript Header Object, more info on those:
@@ -135,11 +104,6 @@ function getDataFromLocalStorage(){
 			arr = JSON.parse(str);
 }
 
-function deleteData(){
-	localStorage.clear()
-	location.reload();
-}
-
 function showData(){
   getDataFromLocalStorage();
 	let tableRef = document.getElementById("onlineStreamersTable");
@@ -192,49 +156,49 @@ function sortTable(n){
   /* Make a loop that will continue until
   no switching has been done: */
   while (switching) {
-    // Start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /* Loop through all table rows (except the
-    first, which contains table headers): */
-    for (i = 1; i < (rows.length - 1); i++) {
-      // Start by saying there should be no switching:
-      shouldSwitch = false;
-      /* Get the two elements you want to compare,
-      one from current row and one from the next: */
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      /* Check if the two rows should switch place,
-      based on the direction, asc or desc: */
-      if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-        }
-      } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-        }
-      }
-    }
-    if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark that a switch has been done: */
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      // Each time a switch is done, increase this count by 1:
-      switchcount ++;
-    } else {
-      /* If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again. */
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-      }
-    }
+	// Start by saying: no switching is done:
+	switching = false;
+	rows = table.rows;
+	/* Loop through all table rows (except the
+	first, which contains table headers): */
+	for (i = 1; i < (rows.length - 1); i++) {
+	  // Start by saying there should be no switching:
+	  shouldSwitch = false;
+	  /* Get the two elements you want to compare,
+	  one from current row and one from the next: */
+	  x = rows[i].getElementsByTagName("TD")[n];
+	  y = rows[i + 1].getElementsByTagName("TD")[n];
+	  /* Check if the two rows should switch place,
+	  based on the direction, asc or desc: */
+	  if (dir == "asc") {
+		if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+		  // If so, mark as a switch and break the loop:
+		  shouldSwitch = true;
+		  break;
+		}
+	  } else if (dir == "desc") {
+		if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+		  // If so, mark as a switch and break the loop:
+		  shouldSwitch = true;
+		  break;
+		}
+	  }
+	}
+	if (shouldSwitch) {
+	  /* If a switch has been marked, make the switch
+	  and mark that a switch has been done: */
+	  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+	  switching = true;
+	  // Each time a switch is done, increase this count by 1:
+	  switchcount ++;
+	} else {
+	  /* If no switching has been done AND the direction is "asc",
+	  set the direction to "desc" and run the while loop again. */
+	  if (switchcount == 0 && dir == "asc") {
+		dir = "desc";
+		switching = true;
+	  }
+	}
   }
 }
 
@@ -264,13 +228,13 @@ function sortTableNum(n){
 			based on the direction, asc or desc: */
 			if (dir == "asc") {
 				if (Number(x.innerHTML) > Number(y.innerHTML)) {
-	  			shouldSwitch = true;
-	  			break;
+				shouldSwitch = true;
+				break;
 			}
 			} else if (dir == "desc") {
 				if (Number(x.innerHTML) < Number(y.innerHTML)) {
-	  			shouldSwitch = true;
-	  		break;
+				shouldSwitch = true;
+			break;
 			}
 			}
 		}

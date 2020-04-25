@@ -2,25 +2,23 @@
 <html>
 
 		<head>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<link href="./css/extension.css" rel="stylesheet">
 		<link rel="stylesheet" href="styles/styles.css">
 
 		</head>
-		<body onload = "showData()">
+		<body>
 				<div class="streamers">
 						<table style="width:100%" id="onlineStreamersTable">
 									<tr>
-										<th onclick = "sortTable(0)" style="cursor:pointer" id = "statusClick">Status</th>
-										<th onClick = "sortTable(1)" style="cursor:pointer" id = "dispayClick">Display Name</th>
-										<th onClick = "sortTable(2)" style="cursor:pointer" id = "titleClick">Title</th>
-										<th onClick = "sortTableNum(3)" style="cursor:pointer" id = "viewerClick">Viewer Count</th>
+										<th style="cursor:pointer" id = "statusClick">Status</th>
+										<th style="cursor:pointer" id = "dispayClick">Display Name</th>
+										<th style="cursor:pointer" id = "titleClick">Title</th>
+										<th style="cursor:pointer" id = "viewerClick">Viewer Count</th>
 									</tr>
 								</table>
 
 			</div>
 		</body>
 
-		<script src="popup.js" defer>	 </script>
-
+		<script src="extension.js" defer>	 </script>
 </html>
