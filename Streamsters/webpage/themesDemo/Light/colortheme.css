@@ -1,0 +1,136 @@
+body {
+		margin: 16px 10%;
+		color: dimgray;
+		background-color: whitesmoke;
+}
+
+.header h1 {
+		text-align: left;
+		display: inline-block;
+		margin: auto;
+		width: 95%;
+		padding-bottom: 25px;
+}
+
+.header img {
+		width: 3%;
+		height: auto;
+}
+
+.collapsible {
+		background-color: dimgray;
+		color: whitesmoke;
+		padding: 18px;
+		cursor: pointer;
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		font-size: 20px;
+		border-radius: 25px 25px 0 0;
+		margin-bottom: -18px;
+		margin-top: 50px;
+}
+
+.themes-con {
+		background-color: darkgray;
+		color: whitesmoke;
+		width: 100%;
+		font-size: 18px;
+		border-radius: 0 0 25px 25px;
+}
+
+.themes-con button {
+		background: none;
+		border: none;
+}
+
+.themes-con img {
+		height: 75px; 
+		width: auto;
+		padding: 25px;
+}
+
+.theme-obj { 
+		text-align: center;
+		display: inline-block;
+		margin: auto;
+		width: 32%;
+}
+
+.color-select:active {
+		border: 5px solid blue;
+		border-radius: 75px;
+		outline: none;
+}
+
+.color-select:focus {
+		border: 5px solid blue;
+		border-radius: 75px;
+		outline: none;
+}
+
+.color-select:visited {
+		border: 5px solid blue;
+		border-radius: 75px;
+		outline: none;
+}
+
+.header img{
+	background-color: none;
+}
+
+p {
+		color: none;
+}
+.search input {
+		background-color: dimgray;
+		color: snow;
+
+}
+
+::placeholder {
+		color: snow;
+}
+
+.search button {
+		background-color: none;
+}
+
+.streamers {
+		color: #444;
+
+}
+
+.streamers td, th {
+		color: snow;
+}
+
+.streamers tr {
+		background-color: dimgray;
+}
+
+.streamers img {
+		background-color: none;
+}
+
+#streamId {
+		border-color: darkgray;
+
+}
+
+.inline-radio {
+		background-color: dimgray;
+}
+#delete-button {
+		background-color: none;
+	}
+.search img{
+	background-color: none;
+}
+a{
+	text-decoration: dimgray;
+}
+#game-link {
+	color: crimson;
+}

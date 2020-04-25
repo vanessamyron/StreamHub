@@ -1,0 +1,136 @@
+body {
+		margin: 16px 10%;
+		color: crimson;
+		background-color: black;
+}
+
+.header h1 {
+		text-align: left;
+		display: inline-block;
+		margin: auto;
+		width: 95%;
+		padding-bottom: 25px;
+}
+
+.header img {
+		width: 3%;
+		height: auto;
+}
+
+.collapsible {
+		background-color: crimson;
+		color: black;
+		padding: 18px;
+		cursor: pointer;
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		font-size: 20px;
+		border-radius: 25px 25px 0 0;
+		margin-bottom: -18px;
+		margin-top: 50px;
+}
+
+.themes-con {
+		background-color: #323232;
+		color: crimson;
+		width: 100%;
+		font-size: 18px;
+		border-radius: 0 0 25px 25px;
+}
+
+.themes-con button {
+		background: none;
+		border: none;
+}
+
+.themes-con img {
+		height: 75px; 
+		width: auto;
+		padding: 25px;
+}
+
+.theme-obj { 
+		text-align: center;
+		display: inline-block;
+		margin: auto;
+		width: 32%;
+}
+
+.color-select:active {
+		border: 5px solid blue;
+		border-radius: 75px;
+		outline: none;
+}
+
+.color-select:focus {
+		border: 5px solid blue;
+		border-radius: 75px;
+		outline: none;
+}
+
+.color-select:visited {
+		border: 5px solid blue;
+		border-radius: 75px;
+		outline: none;
+}
+
+.header img{
+	background-color: crimson;
+}
+
+p {
+		color: snow;
+}
+.search input {
+		background-color: crimson;
+		color: snow;
+
+}
+
+::placeholder {
+		color: snow;
+}
+
+.search button {
+		background-color: crimson;
+}
+
+.streamers {
+		color: #444;
+
+}
+
+.streamers td, th {
+		color: snow;
+}
+
+.streamers tr {
+		background-color: crimson;
+}
+
+.streamers img {
+		background-color: none;
+}
+
+#streamId {
+		border-color: firebrick;
+
+}
+
+.inline-radio {
+		background-color: crimson;
+}
+#delete-button {
+		background-color: crimson;
+	}
+.search img{
+	background-color: crimson;
+}
+a{
+	text-decoration: crimson;
+}
+#game-link {
+	color: crimson;
+}
